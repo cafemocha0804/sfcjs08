@@ -53,19 +53,13 @@ function updateSeekBar(){
 }
 //シークバーの位置変更
 
-function updateSpeed(){
-    let slider = document.querySelector("#speed");
-    let value = slider.value;
-    let player = document.querySelector("#audio");
-　　 player.playbackRate = value;
+function updatePlaybackRate(){
+    let seekbar = document.querySelector("#playback-rate");
+    let player = document.querySelector("audio");
+    let rate = seekbar.value;
+　　 player.playbackRate = rate;
 }
 //再生スピードをスライダーでコントロールする
-
-function changePan(){
-    let pannerControl = document.querySelector("#panner");
-    panner.pan.value = pannerControl.value;
-}
-//パンニングする
 
 
 function setEventHandlers(){
@@ -101,13 +95,10 @@ function setEventHandlers(){
     update.addEventListener("timeupdate", updateSeekBar);
     //シークバーの位置変更
 
-　　let speed = document.querySelector("#speed");
-    speed.addEventListener("input", updateSpeed);
+　　let playbackRate = document.querySelector("#playback-rate");
+    playbackRate.addEventListener("input", updatePlaybackRate);
     //再生スピードをスライダーでコントロールする
 
-   let pannerControl = document.querySelector("#panner");
-　　pannerControl.addEventListener("input", changePan);
-   //パンニングする
 
 }
 //関数にまとめることでプログラムが整理される
